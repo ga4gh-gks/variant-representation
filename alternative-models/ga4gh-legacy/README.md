@@ -13,4 +13,6 @@ At the time of schema freezing, the variant types represented and documented thr
 
 Additional variant types (e.g. breakends, fusions) had not yet been adopted.
 
+The [variants-only.proto](./variants-only.proto) document represents the parts of the specification relevant for the representation of genomic variants.
+
 The original GA4GH variant model development can be found at [ga4gh-schema](https://github.com/ga4gh/ga4gh-schemas/blob/master/src/main/proto/ga4gh/variants.proto).
