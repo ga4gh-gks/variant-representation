@@ -1,11 +1,105 @@
 // This file only presents a derived version of the GA4GH variants
 // model, without the nested callset structures etc. Some fixes applied.
+// "Housekeeping" lines needed for compilation were removed.
 
 syntax = "proto3";
 
-package ga4gh;
+// A `Variant` represents a change in DNA sequence relative to some reference.
+// For example, a variant could represent a SNP or an insertion.
+// Variants belong to a `VariantSet`.
+// This is equivalent to a row in VCF.
+message Variant {
+  // The variant ID.
+  string id = 1;
 
-import "google/protobuf/struct.proto";
+  // The ID of the `VariantSet` this variant belongs to. This transitively
+  // defines
+  // the `ReferenceSet` against which the `Variant` is to be interpreted.
+  string variant_set_id = 2;
+
+  // Names for the variant, for example a RefSNP ID.
+  repeated string names = 3;
+
+  // The date this variant was created in ISO8601
+  string created = 4;
+
+  // The time at which this variant was last updated in ISO8601
+  string updated = 5;
+
+  // The reference on which this variant occurs.
+  // (e.g. `chr20` or `X`)
+  string reference_name = 6;
+
+  // The start position at which this variant occurs (0-based).
+  // This corresponds to the first base of the string of reference bases.
+  // Genomic positions are non-negative integers less than reference length.
+  // Variants spanning the join of circular genomes are represented as
+  // two variants one on each side of the join (position 0).
+  int64 start = 7;
+
+  // The end position (exclusive), resulting in [start, end) closed-open
+  // interval.
+  // This is typically calculated by `start + referenceBases.length`.
+  int64 end = 8;
+
+  // The reference bases for this variant. They start at the given start
+  // position.
+  string reference_bases = 9;
+
+  // The bases that appear instead of the reference bases. Multiple alternate
+  // alleles are possible.
+  repeated string alternate_bases = 10;
+
+  // A map of additional information about the Variant.
+  // NOTE: *attributes* are an abstract object constructor defined in the GA4GH schema
+  Attributes attributes = 13;
+
+  // The variant calls for this particular variant. Each one represents the
+  // determination of genotype with respect to this variant. `Call`s in this
+  // array are implicitly associated with this `Variant`.
+  // NOTE:
+  //   This recapitulates the multi-sample structure of VCF.
+  //   VarRep, may represent a single allele here.
+  repeated Call calls = 12;
+
+  // The "variant_type" is used to denote e.g. structural variants.
+  // Examples:
+  //   DUP  : duplication of sequence following "start"; not necessarily in situ
+  //   DEL  : deletion of sequence following "start"
+  //   BND  : breakend
+  string variant_type = 17;
+
+  // Length of the - if labeled as such in variant_type - structural variation.
+  // Based on the use in VCFv4.2
+  int64 svlen = 18;
+
+  // In the case of structural variants, start and end of the variant may not
+  // be known with an exact base position. "cipos" provides an interval with
+  // high confidence for the start position. The interval is provided by 0 or
+  // 2 signed integers which are added to the start position.
+  // Based on the use in VCFv4.2
+  // Example:
+  //   [ -12000, 1000 ]
+  repeated sint32 cipos = 19;
+
+  // Similar to "cipos", but for the variant's end position (which is derived
+  // from start + svlen).
+  // Example:
+  //   [ -1000, 0 ]
+  repeated sint32 ciend = 20;
+
+  // True if filters were applied for this variant. VCF column 7 "FILTER"
+  // any value other than the missing value.
+  bool filters_applied = 14;
+
+  // True if all filters for this variant passed. VCF column 7 "FILTER"
+  // value PASS.
+  bool filters_passed = 15;
+
+  // Zero or more filters that failed for this variant. VCF column 7 "FILTER"
+  // shared across all alleles in the same VCF record.
+  repeated string filters_failed = 16;
+}
 
 // A `Call` represents the determination of genotype with respect to a
 // particular `Variant`.
@@ -57,96 +151,4 @@ message Call {
 
   // A map of additional information about the Call.
   Attributes attributes = 8;
-}
-
-// A `Variant` represents a change in DNA sequence relative to some reference.
-// For example, a variant could represent a SNP or an insertion.
-// Variants belong to a `VariantSet`.
-// This is equivalent to a row in VCF.
-message Variant {
-  // The variant ID.
-  string id = 1;
-
-  // The ID of the `VariantSet` this variant belongs to. This transitively
-  // defines
-  // the `ReferenceSet` against which the `Variant` is to be interpreted.
-  string variant_set_id = 2;
-
-  // Names for the variant, for example a RefSNP ID.
-  repeated string names = 3;
-
-  // The date this variant was created in ISO8601
-  string created = 4;
-
-  // The time at which this variant was last updated in ISO8601
-  string updated = 5;
-
-  // The reference on which this variant occurs.
-  // (e.g. `chr20` or `X`)
-  string reference_name = 6;
-
-  // The start position at which this variant occurs (0-based).
-  // This corresponds to the first base of the string of reference bases.
-  // Genomic positions are non-negative integers less than reference length.
-  // Variants spanning the join of circular genomes are represented as
-  // two variants one on each side of the join (position 0).
-  int64 start = 7;
-
-  // The end position (exclusive), resulting in [start, end) closed-open
-  // interval.
-  // This is typically calculated by `start + referenceBases.length`.
-  int64 end = 8;
-
-  // The reference bases for this variant. They start at the given start
-  // position.
-  string reference_bases = 9;
-
-  // The bases that appear instead of the reference bases. Multiple alternate
-  // alleles are possible.
-  repeated string alternate_bases = 10;
-
-  // A map of additional information about the Variant.
-  Attributes attributes = 13;
-
-  // The variant calls for this particular variant. Each one represents the
-  // determination of genotype with respect to this variant. `Call`s in this
-  // array are implicitly associated with this `Variant`.
-  repeated Call calls = 12;
-
-  // The "variant_type" is used to denote e.g. structural variants.
-  // Examples:
-  //   DUP  : duplication of sequence following "start"; not necessarily in situ
-  //   DEL  : deletion of sequence following "start"
-  string variant_type = 17;
-
-  // Length of the - if labeled as such in variant_type - structural variation.
-  // Based on the use in VCFv4.2
-  int64 svlen = 18;
-
-  // In the case of structural variants, start and end of the variant may not
-  // be known with an exact base position. "cipos" provides an interval with
-  // high confidence for the start position. The interval is provided by 0 or
-  // 2 signed integers which are added to the start position.
-  // Based on the use in VCFv4.2
-  // Example:
-  //   [ -12000, 1000 ]
-  repeated sint32 cipos = 19;
-
-  // Similar to "cipos", but for the variant's end position (which is derived
-  // from start + svlen).
-  // Example:
-  //   [ -1000, 0 ]
-  repeated sint32 ciend = 20;
-
-  // True if filters were applied for this variant. VCF column 7 "FILTER"
-  // any value other than the missing value.
-  bool filters_applied = 14;
-
-  // True if all filters for this variant passed. VCF column 7 "FILTER"
-  // value PASS.
-  bool filters_passed = 15;
-
-  // Zero or more filters that failed for this variant. VCF column 7 "FILTER"
-  // shared across all alleles in the same VCF record.
-  repeated string filters_failed = 16;
 }
