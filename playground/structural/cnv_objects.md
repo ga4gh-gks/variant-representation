@@ -60,7 +60,7 @@ In this example, a duplicated sequence has information about the locus of the in
 
 ```json
 {
-  "id" : "3eb13749-176c-4eb1-9403-a1478bcfec27",   # could be VMC digest
+  "id" : "3eb13749-176c-4eb1-9403-a1478bcfec27",
   "referenceName" : 8,
   "start": {
     "position" : 121866264,
