@@ -4,6 +4,8 @@ On this page, different options for the representation of copy number variations
 
 Each example may use different notations for different attributes (e.g., both representation of copy number and positions may vary, allowing more heterogeneity for discussions).
 
+**These examples do not intend to represent "solutions" or exact implementations, but rather demonstrate possible options as basis for discussion.**
+
 #### Example of CNV with start and end intervals
 
 This version expresses the uncertainty about the exact mapping of the start and end positions through "intervals as loci". Those intervals would correspond to the high confidence start and end positions (e.g. taking spacial resolution of an array platform into consideration).
@@ -67,7 +69,7 @@ In this example, a duplicated sequence has information about the locus of the in
   "end": {
     "position" : 125065235,
     "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
-  },,
+  },
   "ciStart" : [ 500, 500 ],
   "ciEnd" : [ 500, 500 ],
   "state" : {
