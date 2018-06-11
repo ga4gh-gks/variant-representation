@@ -58,7 +58,7 @@ In this example, a duplicated sequence has information about the locus of the in
 
 ```json
 {
-  "id" : 3eb13749-176c-4eb1-9403-a1478bcfec27,
+  "id" : "3eb13749-176c-4eb1-9403-a1478bcfec27",
   "referenceName" : 8,
   "start": {
     "position" : 121866264,
@@ -80,7 +80,7 @@ In this example, a duplicated sequence has information about the locus of the in
   }
 },
 {
-  "id": "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
+  "id": "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448",
   "referenceName" : 11,
   "start": 98780212,
   "end": 98780212,
