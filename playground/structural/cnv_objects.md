@@ -37,7 +37,7 @@ This version is similar to VCF `INFO:CIPOS` and `INFO:CIEND`.
 ```json
 {
   "referenceName" : 9,
-  "start: 21967753,
+  "start": 21967753,
   "end": 21975098,
   "ciStart" : [ 500, 500 ],
   "ciEnd" : [ 500, 500 ],
