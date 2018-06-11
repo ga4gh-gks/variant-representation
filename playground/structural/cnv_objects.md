@@ -52,3 +52,45 @@ This version is similar to VCF `INFO:CIPOS` and `INFO:CIEND`.
 }
 ```
 
+#### Example of CNV with information about break ends
+
+In this example, a duplicated sequence has information about the locus of the inserted additional copy (here inserted into another chromosome).
+
+```json
+{
+  "id" : 3eb13749-176c-4eb1-9403-a1478bcfec27,
+  "referenceName" : 8,
+  "start": {
+    "position" : 121866264,
+    "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
+  },
+  "end": {
+    "position" : 125065235,
+    "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
+  },,
+  "ciStart" : [ 500, 500 ],
+  "ciEnd" : [ 500, 500 ],
+  "state" : {
+    "termId" : "SO:0001742",
+    "termLabel": "copy_number_gain",
+    "info" : {
+      "ploidy" : 2,
+      "alleleCount" : 3
+    }
+  }
+},
+{
+  "id": "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
+  "referenceName" : 11,
+  "start": 98780212,
+  "end": 98780212,
+  "ciStart" : [ 500, 500 ],
+  "ciEnd" : [ 500, 500 ],
+  "state" : {
+    "termId" : "SO:0001873",
+    "termLabel": "interchromosomal_breakpoint",
+    "info" : {}
+  }
+}
+```
+
