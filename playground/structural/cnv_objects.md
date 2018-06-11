@@ -19,7 +19,7 @@ This version expresses the uncertainty about the exact mapping of the start and 
     "start" : 21974000,
     "end" : 21975000,  
   },
-  "variantType" : {
+  "state" : {
     "termId" : "SO:0001743",
     "termLabel": "copy_number_loss",
     "info" : {
@@ -38,10 +38,10 @@ This version is similar to VCF `INFO:CIPOS` and `INFO:CIEND`.
 {
   "referenceName" : 9,
   "start: 21967753,
-  "end"": 21975098,
+  "end": 21975098,
   "ciStart" : [ 500, 500 ],
   "ciEnd" : [ 500, 500 ],
-  "variantType" : {
+  "state" : {
     "termId" : "SO:0001743",
     "termLabel": "copy_number_loss",
     "info" : {
