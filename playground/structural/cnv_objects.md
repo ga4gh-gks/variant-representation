@@ -14,11 +14,11 @@ This version expresses the uncertainty about the exact mapping of the start and 
   "startInterval" : {
     "start" : 21967000,
     "end" : 21968000,  
-  }
+  },
   "endInterval" : {
     "start" : 21974000,
     "end" : 21975000,  
-  }
+  },
   "variantType" : {
     "termId" : "SO:0001743",
     "termLabel": "copy_number_loss",
@@ -38,7 +38,7 @@ This version is similar to VCF `INFO:CIPOS` and `INFO:CIEND`.
 {
   "referenceName" : 9,
   "start: 21967753,
-  "end: 21975098,
+  "end"": 21975098,
   "ciStart" : [ 500, 500 ],
   "ciEnd" : [ 500, 500 ],
   "variantType" : {
