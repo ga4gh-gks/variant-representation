@@ -63,8 +63,9 @@ https://www.ncbi.nlm.nih.gov/clinvar/variation/221409/
 {
     "LOC32":{
         "id":"LOC32",
-        "start":{end: 11850846},
-        "end": {start: 11867218},
+        "interval":{
+            "start":{max: 11850846},
+            "end": {min: 11867218}},
         "sequence_id":"NC_000001.10",
     },
     "clinvar:223138":{
@@ -84,8 +85,8 @@ https://www.ncbi.nlm.nih.gov/clinvar/variation/221410/
     "LOC34":{
         "id":"LOC34",
         "interval": {
-            "start": {end: 61543299},
-            "end": {start: 61548462p}},
+            "start": {max: 61543299},
+            "end": {min: 61548462p}},
         "sequence_id":"NC_000001.10"
     },
     "clinvar:223139":{
@@ -104,8 +105,9 @@ One additional copy, known tandem repeat (referencing clinvar:223138)
 {
     "LOC32":{
         "id":"LOC32",
-        "start_range": {max: 11850846},
-        "end_range":{min: 11867218},
+        "interval": {
+            "start": {max: 61543299},
+            "end": {min: 61548462p}},
         "sequence_id":"NC_000001.10",
     },
     "LOC33":{
