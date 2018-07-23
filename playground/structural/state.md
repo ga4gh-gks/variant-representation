@@ -12,22 +12,30 @@ The existence of a sequence change
 
 ### id
 **type**: id
+
 **label**: optional
+
 **description**:State object identifier; must be unique within document
 
 ### sequence
 **type**: Sequence
+
 **label**: required
+
 **description**: Sequence that is included or copied
 
 ### location_id
 **type**: Identifier
+
 **label**: required
+
 **description**: Reference to a subsequence that is included or copied
 
 ### copies
 **type**: Integer
+
 **label**: optional
+
 **description**: Number of repeats of sequence, default 1.
 
 ## Examples
