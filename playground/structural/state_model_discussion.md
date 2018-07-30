@@ -26,7 +26,11 @@ Interval defined in terms of Range objects always,
 Precise endpoints are defined with Range.start = Range.end
 
 Interval : {start: Range, end: Range}
-Range: {start: <integer>, end: <integer>}
+Range: {min: <integer>, max: <integer>}
+
+### Definition of Range object
+
+Is it necessary to define 'end' for precise endpoints.
 
 ## Defined with external annotation
 

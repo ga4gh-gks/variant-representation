@@ -54,7 +54,7 @@ https://www.ncbi.nlm.nih.gov/clinvar/variation/221409/
     "clinvar:223138":{
         "id":"clinvar:223138",
         "location_id":"LOC32",
-        "identity":null
+        "copies": {min: 5, max: 8}
     }
 }
 ```
