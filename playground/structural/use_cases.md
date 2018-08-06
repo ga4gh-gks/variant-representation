@@ -1,5 +1,5 @@
 # Single nucleotide repeat
-![single nucleotide repeat][/img/single_nucleotide_repeat.png]
+![single nucleotide repeat][/variant-representation/playground/structural/img/single_nucleotide_repeat.png]
 
 # Short tandem repeat
 ![short tandem repeat][/img/short_tandem_repeat.png]
