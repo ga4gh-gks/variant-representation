@@ -44,6 +44,7 @@ https://www.ncbi.nlm.nih.gov/clinvar/variation/221409/
 
 ```
 {
+    // Location
     "LOC32":{
         "id":"LOC32",
         "interval":{
@@ -51,6 +52,7 @@ https://www.ncbi.nlm.nih.gov/clinvar/variation/221409/
             "end": {min: 11867218}},
         "sequence_id":"NC_000001.10",
     },
+    // State
     "clinvar:223138":{
         "id":"clinvar:223138",
         "location_id":"LOC32",
