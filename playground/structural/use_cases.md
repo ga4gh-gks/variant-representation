@@ -1,8 +1,50 @@
 # Single nucleotide repeat
 ![single nucleotide repeat](img/single_nucleotide_repeat.png)
 
+```
+{
+    "LOC34":{
+        "id":"LOC34",
+        "start":11850846,
+        "end":11850846
+    },
+    "clinvar:223138":{
+        "id":"clinvar:223138",
+        "location_id":"LOC32"
+        "sequence": "A"
+        "copies": 5
+    },
+    "clinvarallele:223138":{
+        "id":"clinvar:223138",
+        "location":"LOC34",
+        "state":"clinvar:223138"
+    }
+}
+```
+
 # Short tandem repeat
 ![short tandem repeat](img/short_tandem_repeat.png)
+
+```
+{
+    "LOC34":{
+        "id":"LOC34",
+        "start":11850846,
+        "end":11850846
+    },
+    "clinvar:223138":{
+        "id":"clinvar:223138",
+        "location_id":"LOC32"
+        "sequence": "CGG"
+        "copies": 5
+    },
+    "clinvarallele:223138":{
+        "id":"clinvar:223138",
+        "location":"LOC34",
+        "state":"clinvar:223138"
+    }
+}
+```
 
 # Tandem duplication
 ![tandem duplication](img/tandem_duplication.png)
@@ -13,7 +55,7 @@
         "id":"LOC32",
         "interval": {
             "start": {max: 61543299},
-            "end": {min: 61548462p}},
+            "end": {min: 61548462}},
         "sequence_id":"NC_000001.10",
     },
     "LOC33":{
@@ -43,7 +85,7 @@
         "id":"LOC34",
         "interval": {
             "start": {max: 61543299},
-            "end": {min: 61548462p}},
+            "end": {min: 61548462}},
         "sequence_id":"NC_000001.10"
     },
     "clinvar:223139":{
