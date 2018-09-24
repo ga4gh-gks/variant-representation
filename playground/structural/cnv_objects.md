@@ -13,14 +13,14 @@ This version expresses the uncertainty about the exact mapping of the start and 
 ```json
 {
   "referenceName" : 9,
-  "start" : 
+  "start" : {
     "location" : {
       "min" : 21967000,
       "max" : 21968000,
       "id" : "loc_9_21967000_21968000"
     }
   },
-  "end" : 
+  "end" : {
     "location": {
       "min" : 21974000,
       "max" : 21975000,  
