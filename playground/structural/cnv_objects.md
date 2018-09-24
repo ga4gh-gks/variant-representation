@@ -13,13 +13,19 @@ This version expresses the uncertainty about the exact mapping of the start and 
 ```json
 {
   "referenceName" : 9,
-  "startInterval" : {
-    "start" : 21967000,
-    "end" : 21968000,  
+  "start" : 
+    "location": {
+      "min" : 21967000,
+      "max" : 21968000,
+      "id" : "loc_9_21967000_21968000
+    }
   },
-  "endInterval" : {
-    "start" : 21974000,
-    "end" : 21975000,  
+  "end" : 
+    "location": {
+      "min" : 21974000,
+      "max" : 21975000,  
+      "id" : "loc_9_21974000_21975000
+    }
   },
   "state" : {
     "termId" : "SO:0001743",
@@ -32,7 +38,61 @@ This version expresses the uncertainty about the exact mapping of the start and 
 }
 ```
 
-#### Example of CNV with start, end and confidence intervals
+#### Example of CNV with information about break ends
+
+In this example, a duplicated sequence has information about the locus of the inserted additional copy (here inserted into another chromosome).
+
+```json
+{
+  "id" : "3eb13749-176c-4eb1-9403-a1478bcfec27",
+  "referenceName" : 8,
+  "start": {
+    "location" : { 
+      "min" : 121866101,
+      "max" : 121867002
+    },
+    "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
+  },
+  "end": {
+    "location" : { 
+      "min" : 125065235,
+      "max" : 125065235
+    },
+    "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
+  },
+  "state" : {
+    "termId" : "SO:0001742",
+    "termLabel": "copy_number_gain",
+    "info" : {
+      "ploidy" : 2,
+      "alleleCount" : 3
+    }
+  }
+},
+{
+  "id": "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448",
+  "referenceName" : 11,
+  "start": {
+    "location": {
+      "min" : 98780212,
+      "max" : 98780212
+    }
+  }, 
+  "end": {
+    "location": {
+      "min" : 98780212,
+      "max" : 98780212
+    }
+  }, 
+  "state" : {
+    "termId" : "SO:0001873",
+    "termLabel": "interchromosomal_breakpoint",
+    "info" : {}
+  }
+}
+```
+
+#### For comparison (not recommended) - Example of CNV with start, end and confidence intervals
 
 This version is similar to VCF `INFO:CIPOS` and `INFO:CIEND`.
 
@@ -54,45 +114,4 @@ This version is similar to VCF `INFO:CIPOS` and `INFO:CIEND`.
 }
 ```
 
-#### Example of CNV with information about break ends
-
-In this example, a duplicated sequence has information about the locus of the inserted additional copy (here inserted into another chromosome).
-
-```json
-{
-  "id" : "3eb13749-176c-4eb1-9403-a1478bcfec27",
-  "referenceName" : 8,
-  "start": {
-    "position" : 121866264,
-    "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
-  },
-  "end": {
-    "position" : 125065235,
-    "mate_id" : "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448"
-  },
-  "ciStart" : [ 500, 500 ],
-  "ciEnd" : [ 500, 500 ],
-  "state" : {
-    "termId" : "SO:0001742",
-    "termLabel": "copy_number_gain",
-    "info" : {
-      "ploidy" : 2,
-      "alleleCount" : 3
-    }
-  }
-},
-{
-  "id": "b2cd2a19-9baf-4fb6-b92d-b0fa4b832448",
-  "referenceName" : 11,
-  "start": 98780212,
-  "end": 98780212,
-  "ciStart" : [ 500, 500 ],
-  "ciEnd" : [ 500, 500 ],
-  "state" : {
-    "termId" : "SO:0001873",
-    "termLabel": "interchromosomal_breakpoint",
-    "info" : {}
-  }
-}
-```
 
