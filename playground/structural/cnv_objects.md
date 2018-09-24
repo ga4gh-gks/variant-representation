@@ -14,7 +14,7 @@ This version expresses the uncertainty about the exact mapping of the start and 
 {
   "referenceName" : 9,
   "start" : 
-    "location": {
+    "location" : {
       "min" : 21967000,
       "max" : 21968000,
       "id" : "loc_9_21967000_21968000"
